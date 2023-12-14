@@ -4,6 +4,11 @@ Welcome to libxml_enumparse! In this directory, you'll find the files you need t
 
 ## Installation
 
+### OS
+It is not easy to prevent libxml-ruby errors on Windows, so currently only Linux is supported. 
+It may also work on Mac.
+
+### How to install
 Install the gem and add to the application's Gemfile by executing:
 
     $ bundle add libxml_enumparse
@@ -14,7 +19,17 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ## Usage
 
-TODO: Write usage instructions here
+Generate an instance. The first argument is the XML path, and the second argument is the element name to be extracted. Get an enumerator from the instance and process the retrieved elements sequentially.
+
+```
+require 'libxml_enumparse'
+
+enumparse = LibXMLEnumparse::Parser.new('something.xml', 'ElementName')
+reader = enumparse.enumerator
+reader.each do |elm|
+    # Do something for extracted element
+end
+```
 
 ## Development
 
